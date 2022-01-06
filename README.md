@@ -90,8 +90,8 @@ Write APIs to perform operations on the table `user` containing the following co
 
 ```
 {
-  "username": "adam_richard",
-  "password": "richard_567"
+  "username": "Prasanna",
+  "password": "Prasanna@2022"
 }
 ```
 
@@ -134,10 +134,11 @@ Write APIs to perform operations on the table `user` containing the following co
     Successful login of the user
 
   - **Response** - **Status code**
-    ` 200 ` - **Status text**
+    `200` - **Status text**
     ```
     Login success!
     <br/>
+    ```
 
 Use `npm install` to install the packages.
 

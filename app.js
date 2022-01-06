@@ -4,12 +4,14 @@ const sqlite3 = require("sqlite3");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 const bcrypt = require("bcrypt");
+const cars = require("cars");
 
 const databasePath = path.join(__dirname, "financepeer.db");
 
 const app = express();
 
 app.use(express.json());
+app.use(cars());
 
 let database = null;
 

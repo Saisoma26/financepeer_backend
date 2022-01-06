@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const path = require("path");
 const bcrypt = require("bcrypt");
 
-const databasePath = path.join(__dirname, "userData.db");
+const databasePath = path.join(__dirname, "financepeer.db");
 
 const app = express();
 
@@ -20,7 +20,7 @@ const initializeDbAndServer = async () => {
       driver: sqlite3.Database,
     });
 
-    app.listen(3000, () =>
+    app.listen(process.env.PORT || 3000, () =>
       console.log("Server Running at http://localhost:3000/")
     );
   } catch (error) {
@@ -51,6 +51,12 @@ function authenticateToken(request, response, next) {
     });
   }
 }
+
+const convertBookDbObjectToResponseObject = (eachbook) => ({
+  title: eachbook.title,
+  id: eachbook.id,
+  body: eachbook.body,
+});
 
 const validatePassword = (password) => {
   return password.length > 4;
@@ -106,7 +112,6 @@ app.post("/login", async (request, response) => {
       };
       const jwtToken = jwt.sign(payload, "MY_SECRET_TOKEN");
       response.send({ jwtToken });
-      response.send("Login success!");
     } else {
       response.status(400);
       response.send("Invalid password");
@@ -128,7 +133,7 @@ app.get("/books/", authenticateToken, async (request, response) => {
 app.post("/books/", async (request, response) => {
   const { bookDetails } = request.body;
   const values = bookDetails.map(
-    (eachBook) => `('${eachBook.title}', ${eachBook.id}, ${eachBook.body})`
+    (eachBook) => `('${eachBook.title}', ${eachBook.id}, '${eachBook.body}')`
   );
   const valuesString = values.join(",");
   const addBookQuery = `

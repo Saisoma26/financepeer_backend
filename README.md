@@ -1,18 +1,18 @@
 # Authentication
 
-Given an `app.js` file and a database file `userData.db` consisting of a  table `user`.
+Given an `app.js` file and a database file `userData.db` consisting of a table `user`.
 
 Write APIs to perform operations on the table `user` containing the following columns,
 
 **User Table**
 
-| Column   | Type    |
-| -------- | ------- |
+| Column   | Type |
+| -------- | ---- |
 | username | TEXT |
-| name     | TEXT    |
-| password | TEXT    |
-| gender   | TEXT    |
-|location|TEXT|
+| name     | TEXT |
+| password | TEXT |
+| gender   | TEXT |
+| location | TEXT |
 
 ### API 1
 
@@ -71,14 +71,14 @@ Write APIs to perform operations on the table `user` containing the following co
     Successful registration of the registrant
 
   - **Response**
-      - **Status code**
-        ```
-        200
-        ```
-      - **Status text**
-       ```
-       User created successfully
-       ```
+    - **Status code**
+      ```
+      200
+      ```
+    - **Status text**
+    ```
+    User created successfully
+    ```
 
 ### API 2
 
@@ -87,6 +87,7 @@ Write APIs to perform operations on the table `user` containing the following co
 #### Method: `POST`
 
 **Request**
+
 ```
 {
   "username": "adam_richard",
@@ -132,82 +133,11 @@ Write APIs to perform operations on the table `user` containing the following co
 
     Successful login of the user
 
-  - **Response**
-    - **Status code**
-      ```
-      200
-      ```
-    - **Status text**
-      ```
-      Login success!
-      ```
-
-### API 3
-
-#### Path: `/change-password`
-
-#### Method: `PUT`
-
-**Request**
-
-```
-{
-  "username": "adam_richard",
-  "oldPassword": "richard_567",
-  "newPassword": "richard@123"
-}
-```
-
-- **Scenario 1**
-
-  - **Description**:
-
-    If the user provides incorrect current password
-
-  - **Response**
-    - **Status code**
-      ```
-      400
-      ```
-    - **Status text**
-      ```
-      Invalid current password
-      ```
-
-- **Scenario 2**
-
-  - **Description**:
-
-    If the user provides new password with less than 5 characters
-
-  - **Response**
-    - **Status code**
-      ```
-      400
-      ```
-    - **Status text**
-      ```
-      Password is too short
-      ```
-
-- **Scenario 3**
-
-  - **Description**:
-
-    Successful password update
-
-  - **Response**
-    - **Status code**
-      ```
-      200
-      ```
-    - **Status text**
-      ```
-      Password updated
-      ```
-
-
-<br/>
+  - **Response** - **Status code**
+    ` 200 ` - **Status text**
+    ```
+    Login success!
+    <br/>
 
 Use `npm install` to install the packages.
 

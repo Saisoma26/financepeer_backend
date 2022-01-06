@@ -2,8 +2,8 @@ POST http://localhost:3000/login/
 Content-Type: application/json
 
 {
-    "username": "adam_richard",
-  "password": "richard_567"
+    "username": "Prasanna",
+  "password": "Prasanna@2022"
 }
 
 ###
@@ -11,17 +11,17 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "username": "adam_richard",
-  "name": "Adam Richard",
-  "password": "richard_567",
-  "gender": "male",
+    "username": "Prasanna",
+  "name": "Prasanna",
+  "password": "Prasanna@2022",
+  "gender": "female",
   "location": "Detroit"
 }
 
 ###
 
 GET http://localhost:3000/books/
-Authorization: Bearer JWT_TOKEN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlByYXNhbm5hIiwiaWF0IjoxNjQxNDU2MDU3fQ.xdsYK9SOKaOgpDxVm8D2z0NS2VBEXiWafMvjhTk3H6I
 
 ###
 
@@ -29,7 +29,7 @@ POST http://localhost:3000/books/
 Content-Type: application/json
 
   {
-      "bookDetails": [
+     "bookDetails" : [
   {
     "userId": 1,
     "id": 1,
